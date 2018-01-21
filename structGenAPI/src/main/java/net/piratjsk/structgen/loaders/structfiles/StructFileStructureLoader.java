@@ -56,6 +56,21 @@ public class StructFileStructureLoader implements StructureLoader {
 
     }
 
+    @Override
+    public AlgorithmFactory getAlgorithmFactory() {
+        return this.algFactory;
+    }
+
+    @Override
+    public ConditionFactory getConditionFactory() {
+        return this.condFactory;
+    }
+
+    @Override
+    public PartFactory getPartFactory() {
+        return this.partFactory;
+    }
+
     public Structure loadFromConfig(final String id, final Config data) {
         // tries per chunk
         int tries = data.getInt("roolsPerChunk");
