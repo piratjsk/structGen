@@ -3,7 +3,6 @@ author: piratjsk
 version: @version@
 main: net.piratjsk.structgen.StructGenPlugin
 load: STARTUP
-softdepend: [WorldEdit]
 
 commands:
   structgen:
