@@ -1,16 +1,12 @@
-package net.piratjsk.structgen.loaders.structfiles;
+package net.piratjsk.structgen.loader;
 
 import com.typesafe.config.Config;
-import javafx.util.Pair;
-import net.piratjsk.structgen.Structure;
 import net.piratjsk.structgen.StructureGenerator;
 import net.piratjsk.structgen.parts.BlockPart;
 import net.piratjsk.structgen.parts.Part;
 import net.piratjsk.structgen.parts.RandomPartPart;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class PartFactory {

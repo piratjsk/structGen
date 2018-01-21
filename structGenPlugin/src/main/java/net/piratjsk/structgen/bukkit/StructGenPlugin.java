@@ -1,8 +1,8 @@
 package net.piratjsk.structgen.bukkit;
 
 import net.piratjsk.structgen.StructureGenerator;
-import net.piratjsk.structgen.loaders.structfiles.AlgorithmFactory;
-import net.piratjsk.structgen.loaders.structfiles.StructFileStructureLoader;
+import net.piratjsk.structgen.loader.AlgorithmFactory;
+import net.piratjsk.structgen.loader.StructureLoader;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,7 +13,13 @@ import java.util.Objects;
 
 public class StructGenPlugin extends JavaPlugin {
 
-    private StructureGenerator generator = new StructureGenerator(new StructFileStructureLoader(new AlgorithmFactory(), new BukkitConditionFactory(), new BukkitPartFactory()));
+    private StructureGenerator generator = new StructureGenerator(new StructureLoader());
+
+    public StructGenPlugin() {
+        this.generator.getStructureLoader().setAlgorithmFactory(new AlgorithmFactory());
+        this.generator.getStructureLoader().setConditionFactory(new BukkitConditionFactory());
+        this.generator.getStructureLoader().setPartFactory(new BukkitPartFactory(this.generator));
+    }
 
     @Override
     public void onEnable() {

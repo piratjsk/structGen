@@ -2,7 +2,7 @@ package net.piratjsk.structgen.bukkit;
 
 import com.typesafe.config.Config;
 import net.piratjsk.structgen.conditions.Condition;
-import net.piratjsk.structgen.loaders.structfiles.ConditionFactory;
+import net.piratjsk.structgen.loader.ConditionFactory;
 
 public class BukkitConditionFactory extends ConditionFactory {
 

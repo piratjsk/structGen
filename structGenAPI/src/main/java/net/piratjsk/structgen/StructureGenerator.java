@@ -1,6 +1,6 @@
 package net.piratjsk.structgen;
 
-import net.piratjsk.structgen.loaders.StructureLoader;
+import net.piratjsk.structgen.loader.StructureLoader;
 
 import java.io.File;
 import java.io.IOException;

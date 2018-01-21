@@ -1,11 +1,11 @@
-package net.piratjsk.structgen.loaders.structfiles;
+package net.piratjsk.structgen.loader;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import net.piratjsk.structgen.Structure;
+import net.piratjsk.structgen.StructureGenerator;
 import net.piratjsk.structgen.algorithms.Algorithm;
 import net.piratjsk.structgen.conditions.Condition;
-import net.piratjsk.structgen.loaders.StructureLoader;
 import net.piratjsk.structgen.parts.Part;
 
 import java.io.File;
@@ -16,23 +16,24 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class StructFileStructureLoader implements StructureLoader {
+public class StructureLoader {
 
-    private final AlgorithmFactory algFactory;
-    private final ConditionFactory condFactory;
-    private final PartFactory partFactory;
+    private AlgorithmFactory algFactory;
+    private ConditionFactory condFactory;
+    private PartFactory partFactory;
 
-    public StructFileStructureLoader() {
-        this(new AlgorithmFactory(), new ConditionFactory(), new PartFactory());
+    public StructureLoader() { }
+
+    public StructureLoader(final StructureGenerator structureGenerator) {
+        this(new AlgorithmFactory(), new ConditionFactory(), new PartFactory(structureGenerator));
     }
 
-    public StructFileStructureLoader(final AlgorithmFactory algorithms, final ConditionFactory conditions, final PartFactory parts) {
+    public StructureLoader(final AlgorithmFactory algorithms, final ConditionFactory conditions, final PartFactory parts) {
         this.algFactory = algorithms;
         this.condFactory = conditions;
         this.partFactory = parts;
     }
 
-    @Override
     public Structure loadFromFile(final File file) throws IOException {
         if (!file.exists()) throw new FileNotFoundException();
         if (!file.getName().endsWith(".struct")) return null;
@@ -49,26 +50,34 @@ public class StructFileStructureLoader implements StructureLoader {
         return new String(encoded, encoding);
     }
 
-    @Override
     public Structure loadFromString(final String id, final String string) {
         final Config data = ConfigFactory.parseString(string);
         return this.loadFromConfig(id, data);
 
     }
 
-    @Override
     public AlgorithmFactory getAlgorithmFactory() {
         return this.algFactory;
     }
 
-    @Override
     public ConditionFactory getConditionFactory() {
         return this.condFactory;
     }
 
-    @Override
     public PartFactory getPartFactory() {
         return this.partFactory;
+    }
+
+    public void setAlgorithmFactory(final AlgorithmFactory algorithmFactory) {
+        this.algFactory = algorithmFactory;
+    }
+
+    public void setConditionFactory(final ConditionFactory conditionFactory) {
+        this.condFactory = conditionFactory;
+    }
+
+    public void setPartFactory(final PartFactory partFactory) {
+        this.partFactory = partFactory;
     }
 
     public Structure loadFromConfig(final String id, final Config data) {

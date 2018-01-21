@@ -1,4 +1,4 @@
-package net.piratjsk.structgen.loaders.structfiles;
+package net.piratjsk.structgen.loader;
 
 import com.typesafe.config.Config;
 import net.piratjsk.structgen.conditions.*;

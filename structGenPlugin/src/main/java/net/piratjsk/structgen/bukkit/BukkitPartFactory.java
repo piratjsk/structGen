@@ -2,11 +2,16 @@ package net.piratjsk.structgen.bukkit;
 
 import com.typesafe.config.Config;
 //import net.piratjsk.structgen.bukkit.parts.ChestPart;
+import net.piratjsk.structgen.StructureGenerator;
 import net.piratjsk.structgen.bukkit.parts.SpawnerPart;
-import net.piratjsk.structgen.loaders.structfiles.PartFactory;
+import net.piratjsk.structgen.loader.PartFactory;
 import net.piratjsk.structgen.parts.Part;
 
 public class BukkitPartFactory extends PartFactory {
+
+    public BukkitPartFactory(StructureGenerator generator) {
+        super(generator);
+    }
 
     @Override
     public Part getPart(final Config data) {
