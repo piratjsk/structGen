@@ -6,7 +6,8 @@ import java.util.Random;
 
 public class BlockPart implements Part {
 
-    private final int x, y, z, id;
+    private int x, y, z;
+    private final int id;
     private final byte meta;
 
     public BlockPart(final int x, final int y, final int z, final int id) {
@@ -37,7 +38,21 @@ public class BlockPart implements Part {
     }
 
     @Override
-    public void putAt(final Location pointOfOrigin) {
+    public void setRelativeX(double x) {
+        this.x = (int) x;
+    }
+
+    @Override
+    public void setRelativeY(double y) {
+        this.y = (int) y;
+    }
+
+    @Override
+    public void setRelativeZ(double z) {
+        this.z = (int) z;
+    }
+
+    @Override
     public void putAt(final Location pointOfOrigin, final Random random) {
         pointOfOrigin.getRelative(this.x, this.y, this.z).setBlock(this.id, this.meta);
     }
