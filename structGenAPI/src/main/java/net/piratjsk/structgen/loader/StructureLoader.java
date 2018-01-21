@@ -82,7 +82,7 @@ public class StructureLoader {
 
     public Structure loadFromConfig(final String id, final Config data) {
         // tries per chunk
-        int tries = data.getInt("roolsPerChunk");
+        int tries = data.getInt("triesPerChunk");
 
         // algorithm
         final Config algorithmData = data.getConfig("location");
