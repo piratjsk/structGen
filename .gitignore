@@ -1,0 +1,22 @@
+.*
+!.gitignore
+
+# gradle
+build/
+libs/
+
+# idea
+*.iml
+*.ipr
+*.iws
+out/
+
+# eclipse
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+*.launch
