@@ -57,7 +57,7 @@ public class SpawnerPart implements Part {
         final World world = Bukkit.getServer().getWorld(pointOfOrigin.getWorldName());
         final org.bukkit.Location loc = new org.bukkit.Location(world, pointOfOrigin.getX(), pointOfOrigin.getY(), pointOfOrigin.getZ());
         loc.getBlock().setType(Material.MOB_SPAWNER);
-        final CreatureSpawner spawner = (CreatureSpawner) loc.getBlock();
-        spawner.setCreatureType(CreatureType.fromName(this.mobType));
+        final CreatureSpawner spawner = (CreatureSpawner) loc.getBlock().getState();
+        spawner.setCreatureType(CreatureType.valueOf(this.mobType.toUpperCase()));
     }
 }
