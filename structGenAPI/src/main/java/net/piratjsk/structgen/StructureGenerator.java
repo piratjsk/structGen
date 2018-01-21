@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.IntStream;
 
 public class StructureGenerator {
@@ -33,18 +34,18 @@ public class StructureGenerator {
         return this.defaultLoader;
     }
 
-    public void generateStructures(final Chunk chunk) {
+    public void generateStructures(final Chunk chunk, final Random random) {
         for (String structureId : this.structures.keySet()) {
-            this.generateStructure(structureId, chunk);
+            this.generateStructure(structureId, chunk, random);
         }
     }
 
-    public void generateStructure(final String structureId, final Chunk chunk) {
+    public void generateStructure(final String structureId, final Chunk chunk, final Random random) {
 		Structure struct = this.structures.get(structureId);
 		IntStream.range(0, struct.getTries()).forEachOrdered(n -> {
-			Location loc = struct.getAlgorithm().findLocation(chunk);
-			if (struct.canGenerateAt(loc)) {
-				struct.generate(loc);
+			Location loc = struct.getAlgorithm().findLocation(chunk, random);
+			if (struct.canGenerateAt(loc, random)) {
+				struct.generate(loc, random);
             }
 		});
 	}

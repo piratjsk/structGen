@@ -8,7 +8,6 @@ import java.util.Random;
 public class RandomAlgorithm implements Algorithm {
 
     private final int minHeight, maxHeight;
-    private final Random random = new Random(); // TODO: use world gen rand instance
 
     public RandomAlgorithm() {
         this(0, 127);
@@ -20,10 +19,10 @@ public class RandomAlgorithm implements Algorithm {
     }
 
     @Override
-    public Location findLocation(final Chunk chunk) {
-        int x = this.random.nextInt(15);
-        int y = this.minHeight + this.random.nextInt(this.maxHeight - this.minHeight);
-        int z = this.random.nextInt(15);
+    public Location findLocation(final Chunk chunk, final Random random) {
+        int x = random.nextInt(15);
+        int y = this.minHeight + random.nextInt(this.maxHeight - this.minHeight);
+        int z = random.nextInt(15);
         return chunk.getLocation(x, y, z);
     }
 }

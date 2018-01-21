@@ -5,6 +5,7 @@ import net.piratjsk.structgen.conditions.Condition;
 import net.piratjsk.structgen.parts.Part;
 
 import java.util.Collection;
+import java.util.Random;
 
 public class Structure {
 
@@ -30,16 +31,16 @@ public class Structure {
         return this.algorithm;
     }
 
-    public boolean canGenerateAt(final Location pointOfOrigin) {
+    public boolean canGenerateAt(final Location pointOfOrigin, final Random random) {
 		for (final Condition cond : this.conditions) {
-			if (!cond.checkFor(pointOfOrigin)) return false;
+			if (!cond.checkFor(pointOfOrigin, random)) return false;
 		}
 		return true;
 	}
 
-	public void generate(final Location loc) {
+	public void generate(final Location loc, final Random random) {
 		for (final Part part : this.structureParts) {
-			part.putAt(loc);
+			part.putAt(loc, random);
 		}
 	}
 

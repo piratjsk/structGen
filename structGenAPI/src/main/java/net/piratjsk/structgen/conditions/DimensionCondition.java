@@ -2,6 +2,8 @@ package net.piratjsk.structgen.conditions;
 
 import net.piratjsk.structgen.Location;
 
+import java.util.Random;
+
 public class DimensionCondition implements Condition {
 
     private final String dimension;
@@ -11,7 +13,7 @@ public class DimensionCondition implements Condition {
     }
 
     @Override
-    public boolean checkFor(final Location loc) {
+    public boolean checkFor(final Location loc, final Random random) {
         return loc.getDimension().equalsIgnoreCase(this.dimension);
     }
 }

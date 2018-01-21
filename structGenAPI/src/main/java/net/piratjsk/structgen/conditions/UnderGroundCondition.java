@@ -2,6 +2,8 @@ package net.piratjsk.structgen.conditions;
 
 import net.piratjsk.structgen.Location;
 
+import java.util.Random;
+
 public class UnderGroundCondition implements Condition {
 
     private final boolean value;
@@ -11,7 +13,7 @@ public class UnderGroundCondition implements Condition {
     }
 
     @Override
-    public boolean checkFor(Location loc) {
+    public boolean checkFor(final Location loc, final Random random) {
         return value == loc.getY() < loc.getSurfaceLevel();
     }
 }

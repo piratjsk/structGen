@@ -2,6 +2,8 @@ package net.piratjsk.structgen.conditions;
 
 import net.piratjsk.structgen.Location;
 
+import java.util.Random;
+
 public class HeightCondition implements Condition {
 
     private final int min, max;
@@ -12,7 +14,7 @@ public class HeightCondition implements Condition {
     }
 
     @Override
-    public boolean checkFor(final Location loc) {
+    public boolean checkFor(final Location loc, final Random random) {
         return loc.getY() >= this.min && loc.getY() <= this.max;
     }
 }

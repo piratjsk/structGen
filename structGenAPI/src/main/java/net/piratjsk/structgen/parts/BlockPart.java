@@ -2,6 +2,8 @@ package net.piratjsk.structgen.parts;
 
 import net.piratjsk.structgen.Location;
 
+import java.util.Random;
+
 public class BlockPart implements Part {
 
     private final int x, y, z, id;
@@ -36,6 +38,7 @@ public class BlockPart implements Part {
 
     @Override
     public void putAt(final Location pointOfOrigin) {
+    public void putAt(final Location pointOfOrigin, final Random random) {
         pointOfOrigin.getRelative(this.x, this.y, this.z).setBlock(this.id, this.meta);
     }
 }

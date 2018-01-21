@@ -4,6 +4,7 @@ import net.piratjsk.structgen.Location;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 public class ConditionGroupCondition implements Condition {
 
@@ -20,12 +21,12 @@ public class ConditionGroupCondition implements Condition {
     }
 
     @Override
-    public boolean checkFor(final Location loc) {
+    public boolean checkFor(final Location loc, final Random random) {
         for (final Condition cond : this.conditions) {
             if (this.or) {
-                if (cond.checkFor(loc)) return true;
+                if (cond.checkFor(loc, random)) return true;
             } else {
-                if (!cond.checkFor(loc)) return false;
+                if (!cond.checkFor(loc, random)) return false;
             }
         }
         return true;

@@ -2,6 +2,8 @@ package net.piratjsk.structgen.conditions;
 
 import net.piratjsk.structgen.Location;
 
+import java.util.Random;
+
 public class BlockCondition implements Condition {
 
     private int x, y, z, id;
@@ -21,7 +23,7 @@ public class BlockCondition implements Condition {
     }
 
     @Override
-    public boolean checkFor(final Location loc) {
+    public boolean checkFor(final Location loc, final Random random) {
         Location blockLoc = loc.getRelative(this.x, this.y, this.z);
         return blockLoc.getBlockId() == this.id && blockLoc.getBlockMeta() == this.meta;
     }
