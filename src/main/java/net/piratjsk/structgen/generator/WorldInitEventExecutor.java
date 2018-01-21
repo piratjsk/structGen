@@ -1,5 +1,6 @@
-package net.piratjsk.structgen;
+package net.piratjsk.structgen.generator;
 
+import net.piratjsk.structgen.StructGenPlugin;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldInitEvent;

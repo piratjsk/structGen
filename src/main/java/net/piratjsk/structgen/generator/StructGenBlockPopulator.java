@@ -1,5 +1,6 @@
-package net.piratjsk.structgen;
+package net.piratjsk.structgen.generator;
 
+import net.piratjsk.structgen.StructGenPlugin;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;

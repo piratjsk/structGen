@@ -1,17 +1,18 @@
-package net.piratjsk.structgen;
+package net.piratjsk.structgen.commands;
 
+import net.piratjsk.structgen.StructGenPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginDescriptionFile;
 
-final class StructGenCommand implements CommandExecutor {
+public final class StructGenCommand implements CommandExecutor {
 
     private final StructGenPlugin plugin;
     private final String PREFIX = ChatColor.YELLOW + "[sg] " + ChatColor.WHITE;
 
-    StructGenCommand(final StructGenPlugin plugin) {
+    public StructGenCommand(final StructGenPlugin plugin) {
         this.plugin = plugin;
     }
 

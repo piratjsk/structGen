@@ -3,13 +3,11 @@ package net.piratjsk.structgen.loader;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import net.piratjsk.structgen.Structure;
-import net.piratjsk.structgen.StructureGenerator;
 import net.piratjsk.structgen.algorithms.Algorithm;
 import net.piratjsk.structgen.conditions.Condition;
 import net.piratjsk.structgen.parts.Part;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -22,10 +20,8 @@ public class StructureLoader {
     private ConditionFactory condFactory;
     private PartFactory partFactory;
 
-    public StructureLoader() { }
-
-    public StructureLoader(final StructureGenerator structureGenerator) {
-        this(new AlgorithmFactory(), new ConditionFactory(), new PartFactory(structureGenerator));
+    public StructureLoader() {
+        this(new AlgorithmFactory(), new ConditionFactory(), new PartFactory());
     }
 
     public StructureLoader(final AlgorithmFactory algorithms, final ConditionFactory conditions, final PartFactory parts) {
@@ -35,17 +31,12 @@ public class StructureLoader {
     }
 
     public Structure loadFromFile(final File file) throws IOException {
-        if (!file.exists()) throw new FileNotFoundException();
-        if (!file.getName().endsWith(".struct")) return null;
-
         final String id = file.getName().replace(".struct","");
-
         final String fileContent = this.readFile(file.getPath(),Charset.defaultCharset());
-
         return this.loadFromString(id, fileContent);
     }
 
-    private String readFile(String path, Charset encoding) throws IOException {
+    private String readFile(final String path, final Charset encoding) throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, encoding);
     }
