@@ -1,4 +1,4 @@
-# structGen
+![structGen](https://i.imgur.com/14ZiV4p.png)
 
 ## Compiling
 1. Clone the repo.  
