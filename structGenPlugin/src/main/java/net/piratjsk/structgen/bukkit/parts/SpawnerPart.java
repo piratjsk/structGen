@@ -8,9 +8,11 @@ import org.bukkit.World;
 import org.bukkit.block.CreatureSpawner;
 import org.bukkit.entity.CreatureType;
 
+import java.util.Random;
+
 public class SpawnerPart implements Part {
 
-    private final int x, y, z;
+    private int x, y, z;
     private final String mobType;
 
     public SpawnerPart(final int x, final int y, final int z, final String mobType) {
@@ -36,7 +38,22 @@ public class SpawnerPart implements Part {
     }
 
     @Override
-    public void putAt(final Location pointOfOrigin) {
+    public void setRelativeX(double x) {
+        this.x = (int) x;
+    }
+
+    @Override
+    public void setRelativeY(double y) {
+        this.y = (int) y;
+    }
+
+    @Override
+    public void setRelativeZ(double z) {
+        this.z = (int) z;
+    }
+
+    @Override
+    public void putAt(final Location pointOfOrigin, final Random random) {
         final World world = Bukkit.getServer().getWorld(pointOfOrigin.getWorldName());
         final org.bukkit.Location loc = new org.bukkit.Location(world, pointOfOrigin.getX(), pointOfOrigin.getY(), pointOfOrigin.getZ());
         loc.getBlock().setType(Material.MOB_SPAWNER);

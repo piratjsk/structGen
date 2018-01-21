@@ -6,12 +6,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Chest;
-import org.bukkit.block.CreatureSpawner;
-import org.bukkit.entity.CreatureType;
+
+import java.util.Random;
 
 public class ChestPart implements Part {
 
-    private final int x, y, z;
+    private int x, y, z;
 
     public ChestPart(final int x, final int y, final int z, final String lootTable) {
         this.x = x;
@@ -36,7 +36,22 @@ public class ChestPart implements Part {
     }
 
     @Override
-    public void putAt(final Location pointOfOrigin) {
+    public void setRelativeX(double x) {
+        this.x = (int) x;
+    }
+
+    @Override
+    public void setRelativeY(double y) {
+        this.y = (int) y;
+    }
+
+    @Override
+    public void setRelativeZ(double z) {
+        this.z = (int) z;
+    }
+
+    @Override
+    public void putAt(final Location pointOfOrigin, final Random random) {
         final World world = Bukkit.getServer().getWorld(pointOfOrigin.getWorldName());
         final org.bukkit.Location loc = new org.bukkit.Location(world, pointOfOrigin.getX(), pointOfOrigin.getY(), pointOfOrigin.getZ());
         loc.getBlock().setType(Material.CHEST);
