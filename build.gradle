@@ -1,0 +1,14 @@
+buildscript {
+	repositories { jcenter() }
+	dependencies { classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1' }
+}
+
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'com.github.johnrengelman.shadow'
+
+	group = rootProject.property("version")
+	version = rootProject.property("version")
+
+	repositories { jcenter() }
+}
