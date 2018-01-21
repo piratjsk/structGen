@@ -1,6 +1,6 @@
-package net.piratjsk.structgen.bukkit;
+package net.piratjsk.structgen;
 
-import net.piratjsk.structgen.Chunk;
+import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 
@@ -15,9 +15,8 @@ public class StructGenBlockPopulator extends BlockPopulator {
     }
 
     @Override
-    public void populate(final World world, final Random random, final org.bukkit.Chunk chunk) {
-        final Chunk bukkitChunk = new BukkitChunk(chunk);
-        this.plugin.getGenerator().generateStructures(bukkitChunk, random);
+    public void populate(final World world, final Random random, final Chunk chunk) {
+        this.plugin.getGenerator().generateStructures(chunk, random);
     }
 
 }

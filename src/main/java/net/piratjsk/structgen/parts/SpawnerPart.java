@@ -1,8 +1,6 @@
-package net.piratjsk.structgen.bukkit.parts;
+package net.piratjsk.structgen.parts;
 
-import net.piratjsk.structgen.Location;
-import net.piratjsk.structgen.parts.Part;
-import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.CreatureSpawner;
@@ -54,10 +52,11 @@ public class SpawnerPart implements Part {
 
     @Override
     public void putAt(final Location pointOfOrigin, final Random random) {
-        final World world = Bukkit.getServer().getWorld(pointOfOrigin.getWorldName());
-        final org.bukkit.Location loc = new org.bukkit.Location(world, pointOfOrigin.getX(), pointOfOrigin.getY(), pointOfOrigin.getZ());
+        final World world = pointOfOrigin.getWorld();
+        final Location loc = new Location(world, pointOfOrigin.getX(), pointOfOrigin.getY(), pointOfOrigin.getZ());
         loc.getBlock().setType(Material.MOB_SPAWNER);
         final CreatureSpawner spawner = (CreatureSpawner) loc.getBlock().getState();
         spawner.setCreatureType(CreatureType.valueOf(this.mobType.toUpperCase()));
     }
+
 }

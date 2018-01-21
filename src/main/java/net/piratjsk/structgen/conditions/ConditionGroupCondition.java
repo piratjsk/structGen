@@ -1,6 +1,6 @@
 package net.piratjsk.structgen.conditions;
 
-import net.piratjsk.structgen.Location;
+import org.bukkit.Location;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,4 +31,5 @@ public class ConditionGroupCondition implements Condition {
         }
         return true;
     }
+
 }

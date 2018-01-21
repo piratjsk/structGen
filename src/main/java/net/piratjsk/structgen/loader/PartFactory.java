@@ -5,6 +5,7 @@ import net.piratjsk.structgen.StructureGenerator;
 import net.piratjsk.structgen.parts.BlockPart;
 import net.piratjsk.structgen.parts.Part;
 import net.piratjsk.structgen.parts.RandomPartPart;
+import net.piratjsk.structgen.parts.SpawnerPart;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,6 +21,16 @@ public class PartFactory {
 	public Part getPart(final Config data) {
         switch (data.getString("type")) {
             case "block":
+                if (data.getInt("id") == 52) {
+                    final int spawnerX = data.getInt("pos.x");
+                    final int spawnerY = data.getInt("pos.y");
+                    final int spawnerZ = data.getInt("pos.z");
+                    final String mobType = data.getString("mobType");
+                    return new SpawnerPart(spawnerX,spawnerY,spawnerZ,mobType);
+                } 
+                if (data.getInt("id") == 54){
+                    // TODO: implement chest part
+                }
                 final int blockX = data.getInt("pos.x");
                 final int blockY = data.getInt("pos.y");
                 final int blockZ = data.getInt("pos.z");

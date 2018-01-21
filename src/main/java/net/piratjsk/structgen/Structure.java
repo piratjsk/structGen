@@ -3,6 +3,7 @@ package net.piratjsk.structgen;
 import net.piratjsk.structgen.algorithms.Algorithm;
 import net.piratjsk.structgen.conditions.Condition;
 import net.piratjsk.structgen.parts.Part;
+import org.bukkit.Location;
 
 import java.util.Collection;
 import java.util.Random;

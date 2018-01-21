@@ -1,6 +1,6 @@
 package net.piratjsk.structgen.parts;
 
-import net.piratjsk.structgen.Location;
+import org.bukkit.Location;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
 package net.piratjsk.structgen.parts;
 
-import net.piratjsk.structgen.Location;
+import org.bukkit.Location;
 
 import java.util.Random;
 import java.util.Set;
@@ -57,4 +57,5 @@ public class RandomPartPart implements Part {
         int rand = random.nextInt(this.parts.size()-1);
         return (Part) this.parts.toArray()[rand];
     }
+
 }

@@ -1,6 +1,8 @@
 package net.piratjsk.structgen;
 
 import net.piratjsk.structgen.loader.StructureLoader;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
 
 import java.io.File;
 import java.io.IOException;

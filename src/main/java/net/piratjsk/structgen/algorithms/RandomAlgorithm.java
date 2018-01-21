@@ -1,8 +1,7 @@
 package net.piratjsk.structgen.algorithms;
 
-import net.piratjsk.structgen.Chunk;
-import net.piratjsk.structgen.Location;
-import net.piratjsk.structgen.loader.AlgorithmFactory;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
 
 import java.util.Random;
 
@@ -31,10 +30,11 @@ public class RandomAlgorithm implements Algorithm {
         int z = random.nextInt(15);
         int y = 0;
         if (this.onSurface) {
-            y = chunk.getLocation(x,y,z).getSurfaceLevel();
+            y = chunk.getWorld().getHighestBlockYAt(x,z);
         } else {
             y = this.minHeight + random.nextInt(this.maxHeight - this.minHeight);
         }
-        return chunk.getLocation(x, y, z);
+        return chunk.getBlock(x,y,z).getLocation();
     }
+
 }

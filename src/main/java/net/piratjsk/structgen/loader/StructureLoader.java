@@ -105,4 +105,5 @@ public class StructureLoader {
 
         return new Structure(id, tries, algorithm, conditions, parts);
     }
+
 }

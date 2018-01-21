@@ -1,6 +1,7 @@
 package net.piratjsk.structgen.conditions;
 
-import net.piratjsk.structgen.Location;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
 
 import java.util.Random;
 
@@ -13,7 +14,6 @@ public class BlockCondition implements Condition {
         this(x, y, z, id, (byte) 0);
     }
 
-
     public BlockCondition(final int x, final int y, final int z, final int id, final byte meta) {
         this.x = x;
         this.y = y;
@@ -24,7 +24,8 @@ public class BlockCondition implements Condition {
 
     @Override
     public boolean checkFor(final Location loc, final Random random) {
-        Location blockLoc = loc.getRelative(this.x, this.y, this.z);
-        return blockLoc.getBlockId() == this.id && blockLoc.getBlockMeta() == this.meta;
+        final Block block = loc.add(this.x, this.y, this.z).getBlock();
+        return block.getTypeId() == this.id && block.getData() == this.meta;
     }
+
 }

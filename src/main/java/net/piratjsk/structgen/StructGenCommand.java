@@ -1,4 +1,4 @@
-package net.piratjsk.structgen.bukkit;
+package net.piratjsk.structgen;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -22,4 +22,5 @@ final class StructGenCommand implements CommandExecutor {
         sender.sendMessage(PREFIX + " by: " + String.join(", ", desc.getAuthors()));
         return true;
     }
+
 }

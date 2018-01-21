@@ -1,7 +1,7 @@
 package net.piratjsk.structgen.algorithms;
 
-import net.piratjsk.structgen.Chunk;
-import net.piratjsk.structgen.Location;
+import org.bukkit.Chunk;
+import org.bukkit.Location;
 
 import java.util.Random;
 

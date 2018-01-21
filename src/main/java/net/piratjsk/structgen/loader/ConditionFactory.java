@@ -42,10 +42,6 @@ public class ConditionFactory {
                 final double minTemperature = data.getDouble("min");
                 final double maxTemperature = data.getDouble("max");
                 return new TemperatureCondition(minTemperature, maxTemperature);
-            case "humidity":
-                final double minHumidity = data.getDouble("min");
-                final double maxHumidity = data.getDouble("max");
-                return new HumidityCondition(minHumidity, maxHumidity);
             case "underGround":
                 final boolean value = data.getBoolean("value");
                 return new UnderGroundCondition(value);

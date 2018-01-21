@@ -1,4 +1,4 @@
-package net.piratjsk.structgen.bukkit;
+package net.piratjsk.structgen;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -15,7 +15,8 @@ public class WorldInitEventExecutor implements EventExecutor {
 
     @Override
     public void execute(final Listener listener, final Event event) {
-        WorldInitEvent initEvent = (WorldInitEvent) event;
+        final WorldInitEvent initEvent = (WorldInitEvent) event;
         initEvent.getWorld().getPopulators().add(this.populator);
     }
+
 }

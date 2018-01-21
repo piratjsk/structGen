@@ -1,7 +1,7 @@
 name: @name@
 author: piratjsk
 version: @version@
-main: net.piratjsk.structgen.bukkit.StructGenPlugin
+main: net.piratjsk.structgen.StructGenPlugin
 load: STARTUP
 softdepend: [WorldEdit]
 

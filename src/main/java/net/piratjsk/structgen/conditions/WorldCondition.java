@@ -1,6 +1,6 @@
 package net.piratjsk.structgen.conditions;
 
-import net.piratjsk.structgen.Location;
+import org.bukkit.Location;
 
 import java.util.Random;
 
@@ -14,6 +14,7 @@ public class WorldCondition implements Condition {
 
     @Override
     public boolean checkFor(final Location loc, final Random random) {
-        return loc.getWorldName().equalsIgnoreCase(this.worldName);
+        return loc.getWorld().getName().equalsIgnoreCase(this.worldName);
     }
+
 }
