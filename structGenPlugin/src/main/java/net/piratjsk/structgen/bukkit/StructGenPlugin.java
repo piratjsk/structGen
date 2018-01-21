@@ -3,8 +3,8 @@ package net.piratjsk.structgen.bukkit;
 import net.piratjsk.structgen.StructureGenerator;
 import net.piratjsk.structgen.loader.AlgorithmFactory;
 import net.piratjsk.structgen.loader.StructureLoader;
-import org.bukkit.World;
-import org.bukkit.generator.BlockPopulator;
+import org.bukkit.event.Event;
+import org.bukkit.event.world.WorldListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -25,11 +25,7 @@ public class StructGenPlugin extends JavaPlugin {
     public void onEnable() {
         this.getCommand("structgen").setExecutor(new StructGenCommand(this));
         this.loadStructures();
-
-        final BlockPopulator populator = new StructGenBlockPopulator(this);
-        for (final World world : this.getServer().getWorlds()) {
-            world.getPopulators().add(populator);
-        }
+        this.getServer().getPluginManager().registerEvent(Event.Type.WORLD_INIT, new WorldListener(), new WorldInitEventExecutor(this), Event.Priority.Normal, this);
     }
 
     public void loadStructures() {
