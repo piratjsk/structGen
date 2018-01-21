@@ -31,7 +31,7 @@ public class RandomAlgorithm implements Algorithm {
         int z = random.nextInt(15);
         int y = 0;
         if (this.onSurface) {
-            y = chunk.getLocation(x,y,z).getSurfaceLevel()+1;
+            y = chunk.getLocation(x,y,z).getSurfaceLevel();
         } else {
             y = this.minHeight + random.nextInt(this.maxHeight - this.minHeight);
         }
