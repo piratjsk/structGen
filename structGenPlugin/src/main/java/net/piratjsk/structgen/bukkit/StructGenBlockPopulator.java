@@ -17,7 +17,7 @@ public class StructGenBlockPopulator extends BlockPopulator {
     @Override
     public void populate(final World world, final Random random, final org.bukkit.Chunk chunk) {
         final Chunk bukkitChunk = new BukkitChunk(chunk);
-        this.plugin.getGenerator().generateStructures(bukkitChunk);
+        this.plugin.getGenerator().generateStructures(bukkitChunk, random);
     }
 
 }
