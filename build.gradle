@@ -11,4 +11,6 @@ allprojects {
 	version = rootProject.property("version")
 
 	repositories { jcenter() }
+
+    build.dependsOn shadowJar
 }
