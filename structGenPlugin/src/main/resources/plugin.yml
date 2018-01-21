@@ -1,0 +1,9 @@
+name: @name@
+author: piratjsk
+version: @version@
+main: net.piratjsk.structgen.bukkit.StructGenPlugin
+softdepend: [WorldEdit]
+
+commands:
+  structgen:
+    aliases: [sg, structg, sgen]
