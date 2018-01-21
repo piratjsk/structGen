@@ -1,2 +1,1 @@
 rootProject.name = 'structGen'
-include 'structGenAPI', 'structGenPlugin'
