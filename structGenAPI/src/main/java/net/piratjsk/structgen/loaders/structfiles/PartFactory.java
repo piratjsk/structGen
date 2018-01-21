@@ -13,7 +13,7 @@ public class PartFactory {
                 final int y = data.getInt("pos.y");
                 final int z = data.getInt("pos.z");
                 final int id = data.getInt("id");
-                final int meta = data.hasPath("meta") ? data.getInt("meta") : 0;
+                final byte meta = data.hasPath("meta") ? (byte) data.getInt("meta") : 0;
                 return new BlockPart(x, y, z, id, meta);
         }
         return null;

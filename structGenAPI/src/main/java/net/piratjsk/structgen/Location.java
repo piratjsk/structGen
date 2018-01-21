@@ -4,15 +4,15 @@ public interface Location {
 	String getBiome();
 	String getWorldName();
 	String getDimension();
-	int getTemperature();
-	int getHumidity();
+	double getTemperature();
+	double getHumidity();
 	double getX();
 	double getY();
 	double getZ();
 	int getBlockId();
-	int getBlockMeta();
+	byte getBlockMeta();
 	Location getRelative(double x, double y, double z);
 	Location getRelative(int x, int y, int z);
-	void setBlock(int blockId, int blockMeta);
+	void setBlock(int blockId, byte blockMeta);
 	int getSurfaceLevel();
 }

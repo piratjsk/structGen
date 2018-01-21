@@ -33,8 +33,14 @@ public class StructureGenerator {
         return this.defaultLoader;
     }
 
-    public void generateStructure(String name, Chunk chunk) {
-		Structure struct = this.structures.get(name);
+    public void generateStructures(final Chunk chunk) {
+        for (String structureId : this.structures.keySet()) {
+            this.generateStructure(structureId, chunk);
+        }
+    }
+
+    public void generateStructure(final String structureId, final Chunk chunk) {
+		Structure struct = this.structures.get(structureId);
 		IntStream.range(0, struct.getTries()).forEachOrdered(n -> {
 			Location loc = struct.getAlgorithm().findLocation(chunk);
 			if (struct.canGenerateAt(loc)) {

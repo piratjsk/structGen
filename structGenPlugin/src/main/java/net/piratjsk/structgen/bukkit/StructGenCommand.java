@@ -1,24 +1,10 @@
-package net.piratjsk.wesga;
+package net.piratjsk.structgen.bukkit;
 
-import com.sk89q.worldedit.*;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
-import com.sk89q.worldedit.regions.Region;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
-
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 final class StructGenCommand implements CommandExecutor {
 

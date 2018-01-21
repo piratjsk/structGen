@@ -4,15 +4,15 @@ import net.piratjsk.structgen.Location;
 
 public class BlockCondition implements Condition {
 
-    private int x, y, z;
-    private int id, meta;
+    private int x, y, z, id;
+    private byte meta;
 
     public BlockCondition(final int x, final int y, final int z, final int id) {
-        this(x, y, z, id, 0);
+        this(x, y, z, id, (byte) 0);
     }
 
 
-    public BlockCondition(final int x, final int y, final int z, final int id, final int meta) {
+    public BlockCondition(final int x, final int y, final int z, final int id, final byte meta) {
         this.x = x;
         this.y = y;
         this.z = z;

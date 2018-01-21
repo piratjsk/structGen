@@ -22,6 +22,10 @@ public class StructFileStructureLoader implements StructureLoader {
     private final ConditionFactory condFactory;
     private final PartFactory partFactory;
 
+    public StructFileStructureLoader() {
+        this(new AlgorithmFactory(), new ConditionFactory(), new PartFactory());
+    }
+
     public StructFileStructureLoader(final AlgorithmFactory algorithms, final ConditionFactory conditions, final PartFactory parts) {
         this.algFactory = algorithms;
         this.condFactory = conditions;
